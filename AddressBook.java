@@ -14,22 +14,30 @@ public class AddressBook{
         Scanner s = new Scanner(System.in);
         try {
             Class.forName("com.mysql.jdbc.Driver");
-        
-                    System.out.println("\n\nWELCOME TO ADDRESS BOOK SYSTEM");
-                    System.out.println("==============================\n\n");
-                    System.out.println("Enter your choice:\n\n1.Insert new record\n2.Update existing record\n3.Delete record\n4.View all records\n5.exit\n");
-                    int ch = s.nextInt();
-                    
-                    switch(ch){
-                        case 1: insert();
-                                break;
-                        case 2: update();
-                                break;
-                        case 3: delete();
-                                break;
-                        case 4: select();
-                                break;
-                        default: System.out.println("Goodbye");
+                    String ss = "admin";
+                    String password = "admin";
+                    System.out.println("Enter username and password");
+                    String userid = s.nextLine();
+                    String pass=s.nextLine();
+                    if((userid.equals(ss)) && (pass.equals(password))) { //only admin can log into the system
+                        System.out.println("\n\nWELCOME TO ADDRESS BOOK SYSTEM");
+                        System.out.println("==============================\n\n");
+                        System.out.println("Enter your choice:\n\n1.Insert new record\n2.Update existing record\n3.Delete record\n4.View all records\n5.exit\n");
+                        int ch = s.nextInt();
+                        
+                        switch(ch){
+                            case 1: insert();
+                                    break;
+                            case 2: update();
+                                    break;
+                            case 3: delete();
+                                    break;
+                            case 4: select();
+                                    break;
+                            default: System.out.println("Goodbye");
+                        }
+                    } else  {
+                        System.out.println("Invalid UserID or Password!");
                     }
                 
             
